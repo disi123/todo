@@ -1,10 +1,9 @@
 /**
- * Modul;
- * Wichtig: meinAppName.services deklarieren...
+ * Modul:
  * 
  * @param {type} param
  */
-angular.module('meinAppName', ['ionic', 'meinAppName.controllers', 'meinAppName.services'])
+angular.module('TodoApp', ['ionic', 'TodoApp.controllers', 'TodoApp.services'])
 /* DEBUG: fürs Testen bei "ionic emulate ios": localhost ersetzen mit: http://www.softwareschneiderei.at/*/
 .constant('URLGetData', {
   url: 'http://localhost:8100/test/?option=1'
@@ -37,7 +36,7 @@ angular.module('meinAppName', ['ionic', 'meinAppName.controllers', 'meinAppName.
 })
 
 /**
- * Config um richtigen State zu laden ...
+ * Config to load correct state
  * 
  * @param {type} $stateProvider
  * @param {type} $urlRouterProvider
@@ -48,7 +47,7 @@ angular.module('meinAppName', ['ionic', 'meinAppName.controllers', 'meinAppName.
   $stateProvider
   .state('page1', {
     url: '/page1',
-    templateUrl: 'templates/page1.html',
+    templateUrl: 'templates/MainPage.html',
     controller: 'TodoCtrl'
   });
 

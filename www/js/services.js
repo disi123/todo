@@ -1,7 +1,7 @@
-angular.module('meinAppName.services', [])
+angular.module('TodoApp.services', [])
 
 /**
- * HTTP nicht vergessen
+ * Factory for returning Data, save one Entry, remove and update Database
  * @param {type} $http
  * @returns {services_L6.servicesAnonym$6}
  */
@@ -13,7 +13,6 @@ angular.module('meinAppName.services', [])
     all: function() {
       return $http.get(URLGetData.url);
     },
-    /* neue function definieren */
     saveOneEntrie: function(data){
       return $http.post(URLSave.url + data);
     },

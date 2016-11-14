@@ -1,8 +1,8 @@
-angular.module('meinAppName.controllers', [])
+angular.module('TodoApp.controllers', [])
 
 .controller('TodoCtrl', function($scope, $ionicModal, Tasks, $ionicListDelegate) {
   
-  /* define our tasks */
+  /* define tasks */
   $scope.tasks = [];
   
   /* get test data from http server */
@@ -17,19 +17,16 @@ angular.module('meinAppName.controllers', [])
     scope: $scope,
     animation: 'slide-in-up'
   });
-  
-  /* Called when the form is submitted send data to the server*/
+
   $scope.createTask = function(task) { 
-    
-    /* hier ist ein guter Punkt um z.B. Daten online zu speichern */
+
     Tasks.saveOneEntrie("&text="+task.title + "&duration=" +task.duration).success(function (response) {
-      /* get test data from http server */
       Tasks.all().success(function (response) {
         $scope.tasks = response;
       });
       
       /* debug output */
-      console.log(response);
+      //console.log(response);
     });
     
     $scope.taskModal.hide();
@@ -39,13 +36,12 @@ angular.module('meinAppName.controllers', [])
  
   /* delete a task */
   $scope.delete = function(id){
-    console.log("delete clicked");
     
     /* Daten löschen ... */
     Tasks.remove("&id="+id).success(function (response) {
       
       /* error?*/
-      console.log(response);
+      //console.log(response);
       
        /* get test data from http server */
       Tasks.all().success(function (response) {
@@ -57,12 +53,12 @@ angular.module('meinAppName.controllers', [])
     });
   };
 
-  // Open our new task modal
+  /* Open new task */
   $scope.newTask = function() {
     $scope.taskModal.show();
   };
 
-  // Close the new task modal
+  /* Close the new task modal */
   $scope.closeNewTask = function() {
     $scope.taskModal.hide();
   };
@@ -78,20 +74,17 @@ angular.module('meinAppName.controllers', [])
   /* edit data */
   $scope.edit = function(task){
     console.log("ID: " + task.id + " title: " +task.title + " duration: "+ task.duration);
-    
-    /* save the vars to the scope */
+
     $scope.task = task;
-    
     $scope.taskModalEdit.show();
   };
   
   /* edit the data */
   $scope.editTodo = function(task){
-    console.log("Will update id:" + task.id + " (new)title:" + task.title + " (new)duration:"+task.duration);
-    
+
     Tasks.update("&id="+task.id +"&text="+task.title + "&duration=" +task.duration).success(function (response) {
       /* error? */
-      console.log(response);
+      //console.log(response);
       
       /* get test data from http server */
       Tasks.all().success(function (response) {
@@ -111,7 +104,7 @@ angular.module('meinAppName.controllers', [])
     });
   };
   
-   // Close the edit task modal
+   /* Close the edit task modal */
   $scope.closeNewTaskEdit = function() {
     $scope.taskModalEdit.hide();
   };
