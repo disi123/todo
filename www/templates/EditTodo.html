@@ -1,0 +1,24 @@
+<div class="modal">
+  <!-- Modal header bar -->
+  <ion-header-bar class="bar-secondary">
+    <h1 class="title">Eintrag bearbeiten</h1>
+    <button class="button button-clear button-positive" ng-click="closeNewTaskEdit()">Abbrechen</button>
+  </ion-header-bar>
+
+  <!-- Modal content area -->
+  <ion-content>
+    <form ng-submit="editTodo(task)">
+      <div class="list">
+        <label class="item item-input">
+          <input type="text" placeholder="Was ist zu tun?" ng-model="task.title">
+        </label>
+        <label class="item item-input">
+        <input type="text" placeholder="Wie lange dauerts?" ng-model="task.duration">
+        </label>
+      </div>
+      <div class="padding">
+        <button type="submit" class="button button-block button-positive">Eintrag ändern</button>
+      </div>
+    </form>
+  </ion-content>
+</div>

@@ -1,0 +1,19 @@
+<ion-header-bar class="bar-dark">
+  <h1 class="title">Todo</h1>
+  <!-- New Task button-->
+  <button class="button button-icon" ng-click="newTask()">
+    <i class="icon ion-compose"></i>
+  </button>
+</ion-header-bar>
+<ion-content>
+  <!-- our list and list items -->
+  <ion-list>
+    <ion-item ng-repeat="task in tasks">
+      <ion-option-button class="button-assertive" ng-click="delete(task.id)">Löschen</ion-option-button>
+      <ion-option-button class="button-positive" ng-click="edit(task)">Bearbeiten</ion-option-button>
+      {{task.id}} {{task.title}}
+      <b>{{task.duration}}</b>
+     
+    </ion-item>
+  </ion-list>
+</ion-content>

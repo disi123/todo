@@ -1,0 +1,10 @@
+{
+  "name": "myAppTodo",
+  "app_id": "",
+  "proxies": [
+    {
+      "path": "/test",
+      "proxyUrl": "http://www.softwareschneiderei.at/test"
+    }
+  ]
+}
