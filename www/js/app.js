@@ -1,10 +1,9 @@
 /**
- * Modul:
+ * Modul: TodoApp
  * 
  * @param {type} param
  */
 angular.module('TodoApp', ['ionic', 'TodoApp.controllers', 'TodoApp.services'])
-/* DEBUG: fürs Testen bei "ionic emulate ios": localhost ersetzen mit: http://www.softwareschneiderei.at/*/
 .constant('URLGetData', {
   url: 'http://localhost:8100/test/?option=1'
   })
@@ -36,7 +35,7 @@ angular.module('TodoApp', ['ionic', 'TodoApp.controllers', 'TodoApp.services'])
 })
 
 /**
- * Config to load correct state
+ * Config to load state
  * 
  * @param {type} $stateProvider
  * @param {type} $urlRouterProvider
@@ -45,13 +44,13 @@ angular.module('TodoApp', ['ionic', 'TodoApp.controllers', 'TodoApp.services'])
 .config(function($stateProvider, $urlRouterProvider) {
 
   $stateProvider
-  .state('page1', {
-    url: '/page1',
+  .state('MainPage', {
+    url: '/MainPage',
     templateUrl: 'templates/MainPage.html',
     controller: 'TodoCtrl'
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/page1');
+  $urlRouterProvider.otherwise('/MainPage');
 
 });
