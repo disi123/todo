@@ -2,45 +2,16 @@
 
 class MysqlStatement {
 
-  /**
-   *
-   * @var type 
-   */
   private $error_msg;
-  
-  /**
-   *
-   * @var type 
-   */
   private $error_code;
-  
-  /**
-   * 
-   */
   private $query = false;
-
-  /**
-   *
-   */
   private $insert_id = false;
-
-  /**
-   *
-   */
   private $num_rows = false;
-
-  /**
-   * 
-   */
   private $sql = false;
-
-  /**
-   * 
-   */
   private $db_connection = false;
 
   /**
-   * 
+   * Constructor
    */
   public function __construct($db_connection, $sql) {
     
@@ -50,7 +21,7 @@ class MysqlStatement {
   }
 
   /**
-   * 
+   * Getter Function for inserted id; num rows; error msg and error code
    */
   public function __get($name) {
     switch ($name) {
@@ -79,7 +50,7 @@ class MysqlStatement {
   }
 
   /**
-   * 
+   * Execute mySQL Statement
    */
   public function execute() {
     
@@ -107,7 +78,7 @@ class MysqlStatement {
   }
 
   /**
-   *
+   * Check if Database entry exist
    */
   public function exist() {
     
@@ -116,7 +87,7 @@ class MysqlStatement {
   }
 
   /**
-   *
+   * Fetch array from Database
    */
   public function fetchArray() {
     
